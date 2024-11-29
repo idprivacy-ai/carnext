@@ -1,0 +1,668 @@
+:root{
+    --chat_blue: #4272FF;
+}
+.chatbx_main{
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    background: #fff;
+    border: 1px solid rgba(36, 39, 44, .1);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, .05);
+    border-radius: 16px;
+    display: flex;
+    overflow: hidden;
+    visibility: hidden;
+    z-index: 1040;
+}
+.chatbx_main.chat_open.fullScreen{
+    border-radius: 0;
+}
+.chatbx_main.chat_open{
+    visibility:visible;
+}
+.chatbx_car_card_main .owl-stage{
+    transition: unset !important;
+}
+.chatbx_primary, .chatbx_secondary{
+    position: relative;
+    width: 350px;
+    height: 550px;
+    background-color: var(--white);
+}
+.chatbx_primary{
+    z-index: 5;
+}
+.chatbx_secondary{
+    position: relative;
+    width: 0;
+    /* -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease; */
+    border-right: 1px solid rgba(36, 39, 44, .1);
+
+}
+.chatbx_main.collapsed.fullScreen .chatbx_primary, .chatbx_main.collapsed.fullScreen .chatbx_secondary, .chatbx_main.fullScreen .chatbx_secondary{
+    height: 100%;
+    border-left: 1px solid rgba(36, 39, 44, .1);
+}
+.chatbx_main.collapsed .chatbx_secondary{
+    width: 350px;
+}
+.chatbx_main .chatbx_secondary .chatbx_car_details{
+    opacity: 0;
+    /* -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    transition: all 1s ease; */
+}
+.chatbx_main.collapsed .chatbx_secondary .chatbx_car_details{
+    opacity: 1;
+}
+.chatbx_head{
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: var(--dark);
+}
+.chatbx_head img{
+    width: 100px;
+}
+.chatbx_primary .chatbx_head a{
+    color: var(--white);
+}
+.chatbx_window{
+    position: relative;
+    /* height: 450px; */
+    overflow-y: auto ;
+}
+.chatbx_main.fullScreen .chatbx_response {
+    height: 100%;
+    border-right: 1px solid rgba(36, 39, 44, .1);
+}
+.chatbx_response .chatbx_msg_l, .chatbx_car_card_main, .chatbx_msg_l.chatbx_msg_loader_inn{
+    position: relative;
+    margin-left: 32px;
+    display: block;
+}
+.chatbx_response .chatbx_msg_l:before, .chatbx_car_card_main:before, .chatbx_msg_l.chatbx_msg_loader_inn:before {
+    content: '';
+    background:url('../images/anisa/Anisa_short.png');
+    width: 28px;
+    height: 28px;
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: block;
+    position: absolute;
+    left: -32px;
+    top: 0;
+}
+.chatbx_response .chatbx_msg_r, .chatbx_response .chatbx_msg_l, .chatbx_msg_l.chatbx_msg_loader_inn {
+    max-width: 82%;
+    line-height: 18px;
+    font-size: 15px;
+    margin-bottom: 8px;
+    display: block;
+    position: relative;
+}
+.chatbx_response .chatbx_msg_r small, .chatbx_response .chatbx_msg_l small {
+    padding: 8px;
+    display: inline-block;
+    position: relative;
+}
+.chatbx_response .chatbx_msg_r span, .chatbx_response .chatbx_msg_l span, .chatbx_car_card_main span {
+    font-size: 11px;
+    color: var(--secondary);
+    display: block;
+    margin-top: 3px;
+}
+.chatbx_response .chatbx_msg_r {
+    margin-left: auto;
+    text-align: end;
+}
+    .chatbx_response .chatbx_msg_r small {
+    background-color: var(--primary-light);
+    border-radius: 8px 0 8px 8px;
+}
+.chatbx_response .chatbx_msg_l small {
+    background-color: var(--gray);
+    border-radius: 0 8px 8px 8px;
+}
+
+.chatbx_car_card_main{
+    position: relative;
+    max-width: 82%;
+    margin-bottom: 8px;
+    display: block;
+}
+.chatbx_car_card{
+    position: relative;
+    background: #fff;
+    border: 1px solid rgba(36, 39, 44, .1);
+    /* box-shadow: 0px 6px 10px rgba(0, 0, 0, .05); */
+    border-radius: 16px;
+    overflow: hidden;
+}
+.chatbx_car_card_main .owl-nav{
+    margin-top: 8px;
+    text-align: center;
+}
+.chatbx_car_card_main .owl-nav button i {
+    width: 36px;
+    height: 36px;
+    font-size: 15px;
+    margin: 0 2px;
+}
+.chatbx_car_card img{
+    position: relative;
+    width: 100%;
+    max-height: 165px;
+}
+.chatbx_carcard_content{
+    position: relative;
+    padding: 8px;
+}
+.chatbx_carcard_content h3{
+    font-size: 16px;
+    font-weight: 700;
+}
+.chatbx_carcard_loc_price {
+    display: flex;
+    align-items: self-start;
+}
+.chatbx_carcard_loc_price .chatbx_car_loc {
+    display: flex;
+    align-items: baseline;
+    color: var(--secondary);
+    font-size: 13px;
+    font-weight: 400;
+}
+.chatbx_carcard_loc_price h5 {
+    font-size: 18px;
+    font-weight: 800;
+    margin-left: auto;
+    margin-bottom: 0;
+}
+
+.chatbx_carcard_btns .btn_chatbx_card{
+    display: block;
+    width: 100%;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    border-top: 1px solid rgba(36, 39, 44, .1);
+    color: var(--primary);
+}
+.chatbx_carcard_btns .btn_chatbx_card:hover{
+    text-decoration: underline;
+}
+.chatbx_input{
+    position: relative;
+    border-top: 1px solid rgba(36, 39, 44, .1);
+}
+.chatbx_input a{
+    color: var(--primary);
+    cursor: pointer;
+}
+.chatbx_input .form-control{
+    padding-bottom: 8px;
+}
+.chatbx_input small{
+    font-size: 11px;
+    line-height: 11px;
+    padding-bottom: 6px;
+    display: block;
+    padding-left: 12px;
+}
+
+.chatbx_head, .chatbx_response, .chatbx_fixed_btm{
+    padding: 12px;
+}
+.chatbx_head, .chatbx_response{
+    overflow: hidden;
+}
+
+/* Btn */
+.chatbx_fixed_btm{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    background-color: var(--white);
+}
+.btn_chatbx{
+    position: relative;
+    border: 1px solid var(--primary);
+    border-radius: 7px;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--primary);
+    display: inline-block;
+    cursor: pointer !important;
+    text-align: center;
+}
+.btn_chatbx:hover, .btn_chatbx:focus{
+    border: 1px solid var(--primary);
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.btn_chatbx_fill{
+    position: relative;
+    border: 1px solid var(--primary);
+    border-radius: 7px;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--white);
+    background-color: var(--primary);
+    display: inline-block;
+    cursor: pointer !important;
+    text-align: center;
+}
+.btn_chatbx_fill:hover, .btn_chatbx_fill:focus{
+    border: 1px solid var(--primary);
+    background-color: var(--white);
+    color: var(--primary);
+}
+
+
+/* Car Details */
+.chatbx_car_details .chatbx_head{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+    z-index: 1;
+}
+.chatbx_car_details .chatbx_head a i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white);
+    height: 32px;
+    width: 32px;
+    font-size: 13px;
+    border-radius: 50%;
+    color: var(--dark-light);
+}
+.chatbx_car_details {
+    position: relative;
+}
+.chatbx_car_details img{
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+}
+.chatbx_cardetails_content{
+    padding: 16px 12px;
+}
+.chatbx_cardetails_content h3{
+    font-size: 18px;
+    font-weight: 700;
+}
+.chatbx_cardetails_loc {
+    color: var(--secondary);
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.chatbx_cardetails_specs{
+    margin: 12px 0;
+}
+.chatbx_cardetails_specs ul{
+    padding: 0;
+    margin: 0;
+}
+.chatbx_cardetails_specs ul{
+    list-style: none;
+}
+.chatbx_cardetails_spec{
+    margin-bottom: 6px;
+}
+.chatbx_cardetails_spec i{
+    color: var(--primary);
+    margin-right: 4px;
+    font-size: 15px;
+    display: inline-block;
+    vertical-align: top;
+    line-height: 24px;
+}
+.chatbx_cardetails_spec p small{
+    color: var(--secondary);
+    font-size: 11px;
+    font-weight: 400;
+}
+.chatbx_cardetails_spec p{
+    font-size: 13px;
+    font-weight: 400;
+    margin-bottom: 0;
+    line-height: 18px;
+}
+
+.chatbx_cardetails_price{
+    position: relative;
+    text-align: center;
+}
+.chatbx_cardetails_price h5{
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.chatbx_cardetails_price small{
+    color: var(--secondary);
+    font-size: 13px;
+    font-weight: 400;
+}
+.chatbx_cardetails_price span{
+    font-size: 18px;
+    font-weight: 800;
+    margin-left: auto;
+    margin-bottom: 0;
+}
+
+.chatbx_cardetails_btn{
+    position: relative;
+    width: 86%;
+    margin: 0 auto;
+}
+
+/* Full Screen */
+.chatbx_main.fullScreen{
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    /* width: 90%; */
+    margin: 0 auto;
+    justify-content: center;
+    background-color: var(--gray);
+}
+.chatbx_main.fullScreen .chatbx_primary{
+    height: 100%;
+}
+.chatbx_main.fullScreen .chatbx_primary, .chatbx_main.fullScreen .chatbx_car_card_main {
+    width: 97%;
+    max-width: 97%;
+}
+
+
+/* Req Info */
+.chatbx_req_info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--white);
+    z-index: 15;
+    height: 0;
+    /* -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease; */
+}
+.chatbx_req_info .chatbx_req_info_inn {
+    display: none;
+    padding: 16px 12px;
+}
+.chatbx_req_info.chatbxreq_show{
+    height: 100%;
+}
+.chatbx_req_info.chatbxreq_show .chatbx_req_info_inn {
+    display: block;
+}
+.chatbx_req_info .details_req_info{
+    font-size: 15px;
+}
+.chatbx_req_info .details_req_info .req_in_border.req_in_wsm {
+    width: 90px;
+}
+.chatbx_req_info .details_req_info span {
+    line-height: 32px;
+}
+.chatbx_main.collapsed.fullScreen .chatbx_secondary{
+    height: 100%;
+}
+
+/* Chat open btn */
+.chatboxO{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1040;
+}
+.banner_chatbox_icon{
+    width: 40px;
+    height: 40px;
+    background-color: var(--chat_blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--white);
+}
+.banner_chatbox_icon{
+    width: 56px;
+    height: 56px;
+    border: 6px solid var(--white);
+}
+
+/* banner chat open */
+.banner_chatbox_o a{
+    display: flex;
+    align-items: start;
+    margin-top: 16px;
+}
+.chatboxO .banner_chatbox_o a{
+    align-items: center;
+}
+.banner_chatbox_text{
+    position: relative;
+    background-color: var(--chat_blue);
+    color: var(--white);
+    font-size: 20px;
+    padding: 5px 10px;
+    border-radius: 0 6px 6px 0;
+    margin-left: 12px;
+    max-width: 80%;
+}
+.banner_chatbox_text:before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-right: 7px solid var(--chat_blue);
+    display: inline-block;
+    position: absolute;
+    left: -7px;
+    top: 18px;
+}
+.chatboxO .banner_chatbox_text{
+    border-radius: 6px 0 0 6px;
+    margin-left: 0;
+    margin-right: 12px;
+    font-size: 14px;
+}
+.chatboxO .banner_chatbox_text:before{
+    display: none;
+}
+.chatboxO .banner_chatbox_text:after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 7px solid var(--chat_blue);
+    display: inline-block;
+    position: absolute;
+    right: -7px;
+    top: 8px;
+}
+
+/* loading */
+.chatbx_msg_loader {
+    position: relative;
+    padding: 0 12px;
+}
+.chatbx_msg_loader_inn{
+    position: relative;
+    background-color: var(--gray);
+    padding: 10px 12px;
+    border-radius: 0 8px 8px 8px;
+    display: flex !important;
+    align-items: center;
+}
+.dot-pulse {
+    position: relative;
+    left: -9999px;
+    width: 5px;
+    height: 5px;
+    border-radius: 5px;
+    background-color: var(--secondary);
+    color: var(--secondary);
+    box-shadow: 9999px 0 0 -5px;
+    animation: dot-pulse 1.5s infinite linear;
+    animation-delay: 0.25s;
+    margin-left: 26px;
+  }
+  .dot-pulse::before, .dot-pulse::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    width: 5px;
+    height: 5px;
+    border-radius: 5px;
+    background-color: var(--secondary);
+    color: var(--secondary);
+  }
+  .dot-pulse::before {
+    box-shadow: 9984px 0 0 -5px;
+    animation: dot-pulse-before 1.5s infinite linear;
+    animation-delay: 0s;
+  }
+  .dot-pulse::after {
+    box-shadow: 10014px 0 0 -5px;
+    animation: dot-pulse-after 1.5s infinite linear;
+    animation-delay: 0.5s;
+  }
+  
+  @keyframes dot-pulse-before {
+    0% {
+      box-shadow: 9984px 0 0 -5px;
+    }
+    30% {
+      box-shadow: 9984px 0 0 2px;
+    }
+    60%, 100% {
+      box-shadow: 9984px 0 0 -5px;
+    }
+  }
+  @keyframes dot-pulse {
+    0% {
+      box-shadow: 9999px 0 0 -5px;
+    }
+    30% {
+      box-shadow: 9999px 0 0 2px;
+    }
+    60%, 100% {
+      box-shadow: 9999px 0 0 -5px;
+    }
+  }
+  @keyframes dot-pulse-after {
+    0% {
+      box-shadow: 10014px 0 0 -5px;
+    }
+    30% {
+      box-shadow: 10014px 0 0 2px;
+    }
+    60%, 100% {
+      box-shadow: 10014px 0 0 -5px;
+    }
+  }
+
+  /* Minimize */
+  .chatbx_main.minimize .chatbx_car_details, .chatbx_main.minimize .chatbx_window, .chatbx_main.minimize .chatbx_input{
+    display: none;
+  }
+  .chatbx_main.minimize .chatbx_primary, .chatbx_main.minimize .chatbx_secondary{
+    height: auto;
+  }
+  .chatbx_main.minimize .full_screen, .chatbx_main.minimize .chatboxO a, .chatbx_disable{
+    pointer-events: none;
+    cursor: default;
+  }
+  .chatbx_disable{
+    color: var(--secondary) !important;
+  }
+
+  /* Close Msg */
+  .chatbx_close_conf{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1120;
+  }
+  .chatbx_close_msg {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 260px;
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+  }
+  .btn.btn_chatbx.chatbx_close_yes, .btn.btn_chatbx.chatbx_close_no {
+    font-size: 15px;
+    padding: 4px 16px;
+    border-radius: 7px;
+}
+
+.chatbx_cars_slides.owl-carousel .owl-nav.disabled{
+    display: block !important;
+}
+
+@media (max-width: 1024px){
+    .banner_chatbox_text {
+        font-size: 18px;
+    }
+}
+@media (max-width: 991px){
+    .chatbx_main.collapsed .chatbx_secondary {
+        width: 300px;
+    }
+}
+@media (max-width: 600px){
+    .chatboxO {
+        bottom: 16px;
+        right: 16px;
+    }
+    .chatbx_main.collapsed .chatbx_secondary {
+        width: 350px;
+        position: absolute;
+        left: 0;
+        z-index: 100;
+        border-radius: 16px;
+    }
+    .chatbx_main.chat_open.fullScreen.collapsed .chatbx_secondary{
+        width: 100%;
+        border-radius: 0;
+    }
+    .chatbx_main.fullScreen .chatbx_primary {
+        width: 100%;
+        max-width: 100%;
+    }
+    .chatbx_main.fullScreen .chatbx_car_card_main, .chatbx_car_card_main{
+        width: 270px;
+        max-width: 270px;
+    }
+}
